@@ -1,0 +1,49 @@
+# mammos-devtools
+
+This repository provides utilities to simplify developing MaMMoS.
+
+## Requirements
+- bash
+- git
+- [pixi](https://pixi.sh/latest/)
+- an SSH key connected to your github account to clone repositories via SSH
+  (done by default in the `prepare.sh` script)
+
+## Preparation
+
+To clone all mammos software suite repositories into a new subdirectory
+`packages` run:
+```shell
+bash prepare.sh
+```
+
+Note: this cannot be done with pixi because the default pixi environment
+contains requirements dependencies, which will only be available after the
+repositories have been cloned. Pixi tries to resolve these in the `prepare`
+environment even though it is configured such that it does not use the default
+solve group.
+
+
+## Available tasks
+
+The following tasks are available to simplify development, execute them with
+`pixi run <task>`:
+
+| task         | description                                                                      |
+|--------------|----------------------------------------------------------------------------------|
+| docs-browse  | Open sphinx documentation in default browser                                     |
+| docs-build   | Build sphinx documentation using the local version of the packages               |
+| docs-clean   | Remove sphinx output                                                             |
+| examples     | Start jupyter lab in the `packages` directory                                    |
+| update-repos | In all repositories: switch to `main` and pull latest changes (ignores failures) |
+
+Note: some of the optional dependencies used in the workflows of the metapackage
+`mammos` can only be installed on Linux.
+
+## Tips
+
+- Sometimes pixi seems to fail to install packages in editable mode even though
+  it is configured to do so. Run `pixi list | grep mammos` and check if the last
+  column contains `<package-name>...none-any.whl (editable)`. If it does bump
+  the version number in `pyproject.toml` of the affected package(s) (does not
+  have to be commited) and try again

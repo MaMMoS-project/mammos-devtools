@@ -1,0 +1,83 @@
+[workspace]
+channels = ["conda-forge"]
+name = "mammos-devtools"
+platforms = [ "osx-arm64", "linux-64", "osx-64", "win-64" ]
+version = "0.1.0"
+
+[dependencies]
+python = "==3.11"
+bayesian-optimization = "*"
+hatch = "*"
+ipython = "*"
+jupyterlab = ">3"
+nbval = "*"
+packaging = "<25"
+pre-commit = "*"
+pytest = "*"
+ruff = "*"
+trame = ">=2.5.2"
+trame-client = ">=2.12.7"
+trame-server = ">=2.11.7"
+trame-vtk = ">=2.5.8"
+trame-vuetify = ">=2.3.1"
+
+[target.linux-64.dependencies]
+esys-escript = ">=5.10,<6"
+ubermag = ">=2024"
+
+[pypi-dependencies]
+mammos = { path = "packages/mammos", editable = true }
+mammos-analysis = { path = "packages/mammos-analysis", editable = true }
+mammos-dft = { path = "packages/mammos-dft", editable = true }
+mammos-entity = { path = "packages/mammos-entity", editable = true }
+mammos-mumag = { path = "packages/mammos-mumag", editable = true }
+mammos-spindynamics = { path = "packages/mammos-spindynamics", editable = true }
+mammos-units = { path = "packages/mammos-units", editable = true }
+
+[tasks]
+examples = "jupyter-lab packages"
+
+
+[feature.prepare.dependencies]
+git = "*"
+
+[feature.prepare.tasks]
+# TODO does not work because solving the default group fails until all repositories are cloned
+# init-repos = """
+# mkdir -p packages &&
+# cd packages &&
+# git clone git@github.com:MaMMoS-project/mammos.git &&
+# git clone git@github.com:MaMMoS-project/mammos-analysis.git &&
+# git clone git@github.com:MaMMoS-project/mammos-dft.git &&
+# git clone git@github.com:MaMMoS-project/mammos-entity.git &&
+# git clone git@github.com:MaMMoS-project/mammos-mumag.git &&
+# git clone git@github.com:MaMMoS-project/mammos-spindynamics.git &&
+# git clone git@github.com:MaMMoS-project/mammos-units.git
+# """
+update-repos = """
+cd packages;
+cd mammos && git checkout main && git pull --rebase; cd ..;
+cd mammos-analysis && git checkout main && git pull --rebase; cd ..;
+cd mammos-dft && git checkout main && git pull --rebase; cd ..;
+cd mammos-entity && git checkout main && git pull --rebase; cd ..;
+cd mammos-mumag && git checkout main && git pull --rebase; cd ..;
+cd mammos-spindynamics && git checkout main && git pull --rebase; cd ..;
+cd mammos-units && git checkout main && git pull --rebase; cd ..;
+"""
+[feature.docs.dependencies]
+ipykernel = "*"
+nbsphinx = "*"
+pandoc = "*"
+pydata-sphinx-theme = "*"
+sphinx = "*"
+sphinx-copybutton = "*"
+sphinx-design = "*"
+
+[feature.docs.tasks]
+docs-build = "cd packages/mammos/docs && make prepare-local && make html"
+docs-browse = "open packages/mammos/docs/build/html/index.html"
+docs-clean = "cd packages/mammos/docs && make clean"
+
+[environments]
+prepare = { features = ["prepare"], no-default-feature = true }
+docs = ["docs"]
