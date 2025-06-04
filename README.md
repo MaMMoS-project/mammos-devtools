@@ -7,7 +7,7 @@ This repository provides utilities to simplify developing MaMMoS.
 - git
 - [pixi](https://pixi.sh/latest/)
 - [pre-commit](https://pre-commit.com/) (optional, but highly recommended;
-  install e.g. with `pipx` or your package manager [apt, brew, ...])
+  install e.g. with `pipx` or your package manager)
 - an SSH key connected to your github account to clone repositories via SSH
   (done by default in the `prepare.sh` script)
 
