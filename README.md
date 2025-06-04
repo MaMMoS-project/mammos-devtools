@@ -31,7 +31,7 @@ The following tasks are available to simplify development, execute them with
 
 | task         | description                                                                      |
 |--------------|----------------------------------------------------------------------------------|
-| docs-browse  | Open sphinx documentation in default browser                                     |
+| docs-browse  | Open sphinx documentation in default browser (calls docs-build internally)       |
 | docs-build   | Build sphinx documentation using the local version of the packages               |
 | docs-clean   | Remove sphinx output                                                             |
 | examples     | Start jupyter lab in the `packages` directory                                    |

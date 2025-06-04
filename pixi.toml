@@ -75,7 +75,7 @@ sphinx-design = "*"
 
 [feature.docs.tasks]
 docs-build = "cd packages/mammos/docs && make prepare-local && make html"
-docs-browse = "open packages/mammos/docs/build/html/index.html"
+docs-browse = { cmd = "open packages/mammos/docs/build/html/index.html", depends-on = ["docs-build"] }
 docs-clean = "cd packages/mammos/docs && make clean"
 
 [environments]
