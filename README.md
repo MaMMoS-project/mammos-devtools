@@ -73,7 +73,7 @@ For clarity, let us assume we want to create a mammos framework component for `x
 
 4. Create package
 
-   ```
+   ```console
    cookiecutter gh:MaMMoS-project/cookiecutter
    ```
 
@@ -86,19 +86,19 @@ For clarity, let us assume we want to create a mammos framework component for `x
    git init .
    ```
 
-6. add git remote (as suggested by github in step 2):
+6. Add git remote (as suggested by github in step 2):
 
-   ```
+   ```console
    git remote add origin git@github.com:MaMMoS-project/mammos-x.git
    ```
 
-7. activate pre-commits in the new repository:
+7. Activate pre-commits in the new repository:
 
-   ```
+   ```console
    pre-commit install
    ```
 
-8. search for `TODO` strings in the files, and work through them.
+8. Search for `TODO` strings in the files, and work through them.
 
 9. Commit updated files with `git add . && git commit`.
 
