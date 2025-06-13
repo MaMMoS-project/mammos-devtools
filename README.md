@@ -49,3 +49,52 @@ Note: some of the optional dependencies used in the workflows of the metapackage
   column contains `<package-name>...none-any.whl (editable)`. If it does bump
   the version number in `pyproject.toml` of the affected package(s) (does not
   have to be commited) and try again
+
+# Workflow to create a new `mammos-` package
+
+For clarity, let us assume we want to create a mammos framework component for `x`, so the package should be called `mammos-x`.
+
+1. Reserve the name `mammos-x` on PyPI
+
+- go to `mammos` organisation 
+- create package
+- go to `publishing`
+  - `owner` : `MaMMos-project`
+  - `repository name` : `mammos-x`
+  - `workflow name` : `publish.yml`
+  - `enivironment name` : `pypi`
+    
+2. Create GitHub repository
+- owner: MaMMos-project
+- enter description
+- make it public
+
+3. Install `cookiecutter`
+
+4. Create package
+
+```
+cookiecutter gh:MaMMoS-project/cookiecutter
+```
+
+This creates a subdirectory `mammos-x` (not a git repository yet).
+
+5. change into the subdirecotry and create a git repository:
+
+```console
+cd mammos-x
+git init .
+```
+
+6. add git remote (as suggested by github in step 2):
+
+```
+git remote add origin git@github.com:MaMMoS-project/mammos-ai.git
+```
+
+7. install `precommit`
+
+8. search for `TODO` strings in the files, and work through them.
+
+9. Commit updated files with `git add . && git commit`.
+
