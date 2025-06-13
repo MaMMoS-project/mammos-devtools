@@ -89,10 +89,14 @@ For clarity, let us assume we want to create a mammos framework component for `x
 6. add git remote (as suggested by github in step 2):
 
    ```
-   git remote add origin git@github.com:MaMMoS-project/mammos-ai.git
+   git remote add origin git@github.com:MaMMoS-project/mammos-x.git
    ```
 
-7. install `precommit`
+7. activate pre-commits in the new repository:
+
+   ```
+   pre-commit install
+   ```
 
 8. search for `TODO` strings in the files, and work through them.
 
