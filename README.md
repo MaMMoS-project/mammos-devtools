@@ -56,41 +56,41 @@ For clarity, let us assume we want to create a mammos framework component for `x
 
 1. Reserve the name `mammos-x` on PyPI
 
-- go to `mammos` organisation 
-- create package
-- go to `publishing`
-  - `owner` : `MaMMos-project`
-  - `repository name` : `mammos-x`
-  - `workflow name` : `publish.yml`
-  - `enivironment name` : `pypi`
+   - go to `mammos` organisation 
+   - create package
+   - go to `publishing`
+     - `owner` : `MaMMos-project`
+     - `repository name` : `mammos-x`
+     - `workflow name` : `publish.yml`
+     - `enivironment name` : `pypi`
     
 2. Create GitHub repository
-- owner: MaMMos-project
-- enter description
-- make it public
+   - owner: MaMMos-project
+   - enter description
+   - make it public
 
 3. Install `cookiecutter`
 
 4. Create package
 
-```
-cookiecutter gh:MaMMoS-project/cookiecutter
-```
+   ```
+   cookiecutter gh:MaMMoS-project/cookiecutter
+   ```
 
-This creates a subdirectory `mammos-x` (not a git repository yet).
+   This creates a subdirectory `mammos-x` (not a git repository yet).
 
 5. change into the subdirecotry and create a git repository:
 
-```console
-cd mammos-x
-git init .
-```
+   ```console
+   cd mammos-x
+   git init .
+   ```
 
 6. add git remote (as suggested by github in step 2):
 
-```
-git remote add origin git@github.com:MaMMoS-project/mammos-ai.git
-```
+   ```
+   git remote add origin git@github.com:MaMMoS-project/mammos-ai.git
+   ```
 
 7. install `precommit`
 
