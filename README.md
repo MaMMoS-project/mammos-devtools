@@ -52,14 +52,19 @@ Note: some of the optional dependencies used in the workflows of the metapackage
 
 # Workflow to create a new `mammos-` package
 
+Prerequisites (must be in PATH):
+- [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html#install-cookiecutter)
+- [pre-commit](https://pre-commit.com/#install)
+- git
+
 For clarity, let us assume we want to create a mammos framework component for `x`, so the package should be called `mammos-x`.
 
 1. Reserve the name `mammos-x` on PyPI
 
-   - go to `mammos` organisation 
+   - go to `mammos` organisation -> Projects
    - create package
-   - go to `publishing`
-     - `owner` : `MaMMos-project`
+   - go to `manage` new project -> `publishing`
+     - `owner` : `MaMMoS-project`
      - `repository name` : `mammos-x`
      - `workflow name` : `publish.yml`
      - `enivironment name` : `pypi`
@@ -68,37 +73,17 @@ For clarity, let us assume we want to create a mammos framework component for `x
    - owner: MaMMos-project
    - enter description
    - make it public
+   - do **not** initialise this repository with anything
 
-3. Install `cookiecutter`
-
-4. Create package
+3. Create package
 
    ```console
    cookiecutter gh:MaMMoS-project/cookiecutter
    ```
 
-   This creates a subdirectory `mammos-x` (not a git repository yet).
+   This creates a subdirectory `mammos-x` with the template content, and in it initialises an empty git repository, sets the origin to git@github.com:MaMMoS-project/mammos-x.git, and activate pre-commit hooks.
+   
+4. Search for `TODO` strings in the files, and work through them.
 
-5. change into the subdirecotry and create a git repository:
-
-   ```console
-   cd mammos-x
-   git init .
-   ```
-
-6. Add git remote (as suggested by github in step 2):
-
-   ```console
-   git remote add origin git@github.com:MaMMoS-project/mammos-x.git
-   ```
-
-7. Activate pre-commits in the new repository:
-
-   ```console
-   pre-commit install
-   ```
-
-8. Search for `TODO` strings in the files, and work through them.
-
-9. Commit updated files with `git add . && git commit`.
+5. Commit all files with `git add . && git commit -m "Initial commit"`.
 
