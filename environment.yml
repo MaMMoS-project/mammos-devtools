@@ -1,0 +1,29 @@
+name: mammos-dev
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - bayesian-optimization
+  - hatch
+  - ipython
+  - jupyterlab
+  - nbval
+  - pytest
+  - esys-escript
+  - ubermag
+  - pip
+  - pip:
+      - -e packages/mammos-units
+      - -e packages/mammos-entity
+      - -e packages/mammos-analysis
+      - -e packages/mammos-dft
+      - -e packages/mammos-mumag
+      - -e packages/mammos-spindynamics
+      - -e packages/mammos
+
+# trame = ">=2.5.2"
+# trame-client = ">=2.12.7"
+# trame-server = ">=2.11.7"
+# trame-vtk = ">=2.5.8"
+# trame-vuetify = ">=2.3.1"
