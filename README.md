@@ -5,7 +5,7 @@ This repository provides utilities to simplify developing MaMMoS.
 ## Requirements
 - bash
 - git
-- [pixi](https://pixi.sh/latest/)
+- [pixi](https://pixi.sh/latest/), at least version 0.50.2 (older versions have a bug breaking editable installation)
 - [pre-commit](https://pre-commit.com/) (optional, but highly recommended;
   install e.g. with your package manager or [pipx](https://pipx.pypa.io/latest/installation/))
 - an SSH key connected to your github account to clone repositories via SSH
@@ -41,14 +41,6 @@ The following tasks are available to simplify development, execute them with
 
 Note: some of the optional dependencies used in the workflows of the metapackage
 `mammos` can only be installed on Linux.
-
-## Tips
-
-- Sometimes pixi seems to fail to install packages in editable mode even though
-  it is configured to do so. Run `pixi list | grep mammos` and check if the last
-  column contains `<package-name>...none-any.whl (editable)`. If it does bump
-  the version number in `pyproject.toml` of the affected package(s) (does not
-  have to be commited) and try again
 
 # Workflow to create a new `mammos-` package
 
