@@ -74,8 +74,20 @@ For clarity, let us assume we want to create a mammos framework component for `x
    ```
 
    This creates a subdirectory `mammos-x` with the template content, and in it initialises an empty git repository, sets the origin to git@github.com:MaMMoS-project/mammos-x.git, and activate pre-commit hooks.
-   
+
 4. Search for `TODO` strings in the files, and work through them.
 
 5. Commit all files with `git add . && git commit -m "Initial commit"`.
 
+
+# Workflow to publish a new version of one framework package:
+1. cd into `<repo>` root
+2. pull latest main
+3. optional: run tests `pixi run test-all`
+4. Update version in `pyproject.toml` and `.binder/environment.yml`
+5. optional: `pixi run towncrier build --draft` to check that it looks good.
+6. `pixi run towncrier build` (to not run in an existing pixi shell to ensure that the updated version number is used)
+7. Confirm remove of changes.
+8. Commit all changes and push.
+9. Tag `git tag <version>`
+10. Push tag `git push origin <version>`
