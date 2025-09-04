@@ -60,7 +60,7 @@ For clarity, let us assume we want to create a mammos framework component for `x
      - `repository name` : `mammos-x`
      - `workflow name` : `publish.yml`
      - `enivironment name` : `pypi`
-    
+
 2. Create GitHub repository
    - owner: MaMMos-project
    - enter description
@@ -81,13 +81,16 @@ For clarity, let us assume we want to create a mammos framework component for `x
 
 
 # Workflow to publish a new version of one framework package:
-1. cd into `<repo>` root
-2. pull latest main
-3. optional: run tests `pixi run test-all`
+1. `cd` into `<repo>` root
+2. Pull latest main: `git checkout main && git pull --rebase`
+3. [optional] Run tests `pixi run test-all`
 4. Update version in `pyproject.toml` and `.binder/environment.yml`
-5. optional: `pixi run towncrier build --draft` to check that it looks good.
-6. `pixi run towncrier build` (to not run in an existing pixi shell to ensure that the updated version number is used)
-7. Confirm remove of changes.
-8. Commit all changes and push.
-9. Tag `git tag <version>`
-10. Push tag `git push origin <version>`
+5. [optional] Check that the new changelog highlight looks good: `pixi run towncrier build --draft`
+6. Run `towncrier` with `pixi run towncrier build` (to not run in an existing pixi shell to ensure that the updated version number is used)
+7. Confirm remove of changes: type `Y` when asked
+8. Towncrier stages the changes it makes, but the updated `pyproject.toml` and `.binder/environment.yml` need to be staged: `git add pyproject.toml .binder/environment.yml`
+9. Commit all changes: `git commit`
+10. [optional] Squash commits
+11. Push changes: `git push`
+12. Tag `git tag <version>`
+13. Push tag `git push origin <version>`
