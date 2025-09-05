@@ -86,7 +86,7 @@ For clarity, let us assume we want to create a mammos framework component for `x
 3. [optional] Run tests `pixi run test-all`
 4. Update version in `pyproject.toml` and `.binder/environment.yml`
 5. [optional] Check that the new changelog highlight looks good: `pixi run towncrier build --draft`
-6. Run `towncrier` with `pixi run towncrier build` (to not run in an existing pixi shell to ensure that the updated version number is used)
+6. Run `towncrier` with `pixi run towncrier build` (use `pixi run ...` instead of being in a `pixi shell` to ensure that the updated version number is used)
 7. Confirm remove of changes: type `Y` when asked
 8. Towncrier stages the changes it makes, but the updated `pyproject.toml` and `.binder/environment.yml` need to be staged: `git add pyproject.toml .binder/environment.yml`
 9. Commit all changes: `git commit`
