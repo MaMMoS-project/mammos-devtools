@@ -1,6 +1,6 @@
 # Spelling/capitalization
 - use American spelling everywhere
-- captialization of physical quantities (objects/functions to create those)
+- capitalization of physical quantities (objects/functions to create those)
   follows the "natural" capitalization ignoring all Python conventions.
 - Capitalization of other code follows PEP8 recommendations (snake_case for
   methods/functions/properties, CamelCase for classes)
