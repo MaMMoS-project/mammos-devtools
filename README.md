@@ -95,7 +95,7 @@ For clarity, let us assume we want to create a mammos framework component for `x
 12. Tag `git tag <version>`
 13. Push tag `git push origin <version>`
 
-# Worflow to publish the metapackage:
+# Workflow to publish the metapackage:
 1. `cd` into `mammos` root
 2. Pull latest main: `git checkout main && git pull --rebase`
 3. Update versions for all dependencies in `pyproject.toml`
