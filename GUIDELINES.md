@@ -73,6 +73,8 @@ def compute_speed(
 ) -> mammos_entity.Entity:
     """One-line summary.
 
+    Long description ...
+
     Args:
         length: The travelled distance as :entity:`Length`; in unit 'm' when
             passing raw numbers.
@@ -98,8 +100,8 @@ def compute_speed(
     """
     # validate/convert inputs to entities
     # explicitly specify units
-    length = me.Entity("Length", length, "m")
-    time = me.Entity("Time", time, "s")
+    length = me._entity.as_entity("length", length, "Length", "m")
+    time = me.Entity.from_compatible(time, "Time", "s")
 
     # operate on quantities
     speed = length.q / time.q
