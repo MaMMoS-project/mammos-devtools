@@ -57,7 +57,7 @@ if TYPE_CHECKING:
     # annotations as clear as possible)
     import mammos_entity
     import mammos_units
-    import numpy
+    import numpy.typing
 
 
 def compute_speed(
