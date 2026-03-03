@@ -60,13 +60,6 @@ if TYPE_CHECKING:
     import numpy
 
 
-def _compute_speed(
-    length: me.Entity | u.Quantity | npt.ArrayLike,
-    time: me.Entity | u.Quantity | npt.ArrayLike,
-) -> me.Entity:
-    pass
-
-
 def compute_speed(
     length: mammos_entity.Entity | mammos_units.Quantity | numpy.typing.ArrayLike,
     time: mammos_entity.Entity | mammos_units.Quantity | numpy.typing.ArrayLike,
@@ -100,8 +93,8 @@ def compute_speed(
     """
     # validate/convert inputs to entities
     # explicitly specify units
-    length = me._entity.as_entity("length", length, "Length", "m")
-    time = me.Entity.from_compatible(time, "Time", "s")
+    length = me._entity.from_compatible("length", length, "Length", "m")
+    time = me.Entity.from_compatible("time", time, "Time", "s")
 
     # operate on quantities
     speed = length.q / time.q
