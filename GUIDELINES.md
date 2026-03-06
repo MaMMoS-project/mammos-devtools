@@ -75,7 +75,7 @@ def compute_speed(
             numbers.
 
     Returns:
-        The travelling speed as :entity:`Speed` in unit 'm/s'.
+        The travelling speed as :entity:`Speed`.
 
     Examples:
         Passing entities:
@@ -93,14 +93,14 @@ def compute_speed(
     """
     # validate/convert inputs to entities
     # explicitly specify units
-    length = me._entity.from_compatible("length", length, "Length", "m")
-    time = me.Entity.from_compatible("time", time, "Time", "s")
+    length = me._entity.from_compatible("Length", "m", length=length)
+    time = me.Entity.from_compatible("Time", "s", time=time)
 
     # operate on quantities
     speed = length.q / time.q
 
     # return an entity
-    return me.Entity("Speed", speed, "m/s")
+    return me.Entity("Speed", speed)
 
 
 # optionally: decorate class so that entities can no longer be modified
