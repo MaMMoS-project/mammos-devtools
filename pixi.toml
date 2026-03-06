@@ -21,6 +21,7 @@ trame-client = ">=2.12.7"
 trame-server = ">=2.11.7"
 trame-vtk = ">=2.5.8"
 trame-vuetify = ">=2.3.1"
+uppasd = ">=6.0.2,<7"
 
 [target.linux-64.dependencies]
 esys-escript = ">=5.10,<6"
@@ -67,10 +68,10 @@ cd mammos-units && git checkout main && git pull --rebase; cd ..;
 """
 [feature.docs.dependencies]
 ipykernel = "*"
-nbsphinx = "*"
+myst-nb = "*"
 pandoc = "*"
 pydata-sphinx-theme = "*"
-sphinx = "*"
+sphinx = ">=9"
 sphinx-copybutton = "*"
 sphinx-design = "*"
 
