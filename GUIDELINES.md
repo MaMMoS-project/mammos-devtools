@@ -69,10 +69,8 @@ def compute_speed(
     Long description ...
 
     Args:
-        length: The travelled distance as :entity:`Length`; in unit 'm' when
-            passing raw numbers.
-        time: The travel time as :entity:`Time`; in unit 's' if passing raw
-            numbers.
+        length: The travelled distance as :entity:`Length`. Unit for raw numbers: 'm'.
+        time: The travel time as :entity:`Time`. Unit for raw numbers: 's'.
 
     Returns:
         The travelling speed as :entity:`Speed`.
