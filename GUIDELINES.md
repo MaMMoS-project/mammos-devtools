@@ -131,9 +131,9 @@ class IntrinsicProperties(me.EntityCollection):
             description: Description of the collection.
         """
         # validate passed entities
-        me._entity.ensure_entity("Ms", Ms, "SpontaneousMagnetization")
-        me._entity.ensure_entity("A", A, "ExchangeStiffnessConstant")
-        me._entity.ensure_entity("Tc", Tc, "CurieTemperature")
+        me._entity.ensure_entity("SpontaneousMagnetization", Ms=Ms)
+        me._entity.ensure_entity("ExchangeStiffnessConstant", A=A)
+        me._entity.ensure_entity("CurieTemperature", Tc=Tc)
         # pass entites to base __init__ to initialise the collection
         super().__init__(description=description, Ms=Ms, A=A, Tc=Tc)
 
