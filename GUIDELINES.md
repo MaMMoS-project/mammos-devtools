@@ -43,6 +43,11 @@ Where possible/relevant accept and check the following:
   entity is correct
 - numbers (or other basic data types): assume it is given in units of the entity base unit
 
+# AI/agent assisted contributions
+- All code that is generated with the help of an AI assistent must be marked as such in the commit message:
+  Add a line `Assisted-by: agent:model` (e.g. `Assisted-by: OpenAI Codex:gpt-5.3-codex`) at the end of your commit message.
+- The human submitter must take full responsibility for the contribution and should review all generated code.
+
 # Examples
 
 ## Validating inputs to a function
