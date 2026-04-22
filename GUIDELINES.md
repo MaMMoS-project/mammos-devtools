@@ -45,6 +45,7 @@ Where possible/relevant accept and check the following:
 
 # Examples
 
+## Validating inputs to a function
 ```python
 from __future__ import annotations
 
@@ -101,8 +102,10 @@ def compute_speed(
 
     # return an entity
     return me.Entity("Speed", speed)
+```
 
-
+## [PRELIMINARY] Subclassing EntityCollection
+```python
 # optionally: decorate class so that entities can no longer be modified
 # once the class has been initialized
 @me._entity_collection.frozen_collection
