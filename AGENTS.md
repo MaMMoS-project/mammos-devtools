@@ -16,12 +16,18 @@ root repository and in each package repository you touch. Do not assume a root
 branch name or status applies to packages. Make branch changes and commits
 inside the repository that owns the files you changed.
 
-Package repositories must work as standalone checkouts. Do not write package
-code, tests, docs, or commands that require `mammos-devtools` or sibling
-repositories unless the package documentation explicitly says so.
+Package repositories must work as standalone checkouts unless their package
+documentation explicitly says otherwise. Do not write package code, tests, docs,
+or commands that require `mammos-devtools` or sibling repositories by default.
 
-Prefer focused package edits. A pattern in one package is useful context, but do
-not propagate changes across every package without a concrete reason.
+MaMMoS packages depend on each other, so a change in one package may require
+downstream changes in others. Do not make multi-package changes without explicit
+approval from the user. Operate only on the packages needed for the task.
 
-For shared contribution guidance, edit root `CONTRIBUTING-MaMMoS.md` and run
-`pixi run sync-contributing`. Do not edit synced package copies directly.
+When new information is needed, put it in the document for its audience. Use
+README files, examples, or normal docs for user-facing information. Use package
+`CONTRIBUTING.md` for package-specific developer guidance and root
+`CONTRIBUTING-MaMMoS.md` for shared MaMMoS developer guidance. Use `AGENTS.md`
+only for AI-specific operating instructions. After editing root
+`CONTRIBUTING-MaMMoS.md`, run `pixi run sync-contributing`; do not edit synced
+package copies directly.
