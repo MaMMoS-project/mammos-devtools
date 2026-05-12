@@ -24,6 +24,9 @@ MaMMoS packages depend on each other, so a change in one package may require
 downstream changes in others. Do not make multi-package changes without explicit
 approval from the user. Operate only on the packages needed for the task.
 
+Keep generated code and documentation simple, explicit, and easy for a human
+maintainer to understand.
+
 When new information is needed, put it in the document for its audience. Use
 README files, examples, or normal docs for user-facing information. Use package
 `CONTRIBUTING.md` for package-specific developer guidance and root
