@@ -31,13 +31,15 @@ solve group.
 The following tasks are available to simplify development, execute them with
 `pixi run <task>`:
 
-| task         | description                                                                      |
-|--------------|----------------------------------------------------------------------------------|
-| docs-browse  | Open sphinx documentation in default browser (calls docs-build internally)       |
-| docs-build   | Build sphinx documentation using the local version of the packages               |
-| docs-clean   | Remove sphinx output                                                             |
-| examples     | Start jupyter lab in the `packages` directory                                    |
-| update-repos | In all repositories: switch to `main` and pull latest changes (ignores failures) |
+| task                       | description                                                                      |
+|----------------------------|----------------------------------------------------------------------------------|
+| docs-browse                | Open sphinx documentation in default browser (calls docs-build internally)       |
+| docs-build                 | Build sphinx documentation using the local version of the packages               |
+| docs-clean                 | Remove sphinx output                                                             |
+| examples                   | Start jupyter lab in the `packages` directory                                    |
+| sync-contributing          | Copy the shared MaMMoS contributing guide into package repositories              |
+| check-contributing         | Check that package copies of the shared contributing guide are current           |
+| update-repos               | In all repositories: switch to `main` and pull latest changes (ignores failures) |
 
 Note: some of the optional dependencies used in the workflows of the metapackage
 `mammos` can only be installed on Linux.

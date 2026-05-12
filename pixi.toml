@@ -38,6 +38,8 @@ mammos-units = { path = "packages/mammos-units", editable = true }
 
 [tasks]
 examples = "jupyter-lab packages"
+sync-contributing = "python scripts/sync_contributing_mammos.py --write"
+check-contributing = "python scripts/sync_contributing_mammos.py --check"
 
 
 [feature.prepare.dependencies]

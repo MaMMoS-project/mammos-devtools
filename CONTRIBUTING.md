@@ -70,11 +70,11 @@ package repositories so standalone contributors can read it.
 Update package copies:
 
 ```shell
-pixi run sync-contributing-mammos
+pixi run sync-contributing
 ```
 
 Check that package copies are current:
 
 ```shell
-pixi run check-contributing-mammos
+pixi run check-contributing
 ```

@@ -23,4 +23,4 @@ Prefer focused package edits. A pattern in one package is useful context, but do
 not propagate changes across every package without a concrete reason.
 
 For shared contribution guidance, edit root `CONTRIBUTING-MaMMoS.md` and run
-`pixi run sync-contributing-mammos`. Do not edit synced package copies directly.
+`pixi run sync-contributing`. Do not edit synced package copies directly.

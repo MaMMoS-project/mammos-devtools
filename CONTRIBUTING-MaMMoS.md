@@ -1,6 +1,6 @@
 <!--
 Canonical source: MaMMoS-project/mammos-devtools, CONTRIBUTING-MaMMoS.md.
-Package copies are generated with `pixi run sync-contributing-mammos` from
+Package copies are generated with `pixi run sync-contributing` from
 the mammos-devtools repository. Do not edit package copies directly.
 -->
 
