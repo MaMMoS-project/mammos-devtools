@@ -1,5 +1,9 @@
 # Agent Instructions for mammos-devtools
 
+This file is only for AI coding agents. Human-facing contribution policy and
+project guidance belong in `CONTRIBUTING.md`, `CONTRIBUTING-MaMMoS.md`, README
+files, or normal documentation.
+
 Read these files before editing:
 
 1. `CONTRIBUTING.md`
@@ -9,11 +13,8 @@ Read these files before editing:
 
 `packages/` contains separate Git repositories. Check branch and status in the
 root repository and in each package repository you touch. Do not assume a root
-branch name or status applies to packages.
-
-Keep human-facing project standards in `CONTRIBUTING-MaMMoS.md`,
-`CONTRIBUTING.md`, README files, or normal docs. Use `AGENTS.md` only for
-agent-specific operational guidance.
+branch name or status applies to packages. Make branch changes and commits
+inside the repository that owns the files you changed.
 
 Package repositories must work as standalone checkouts. Do not write package
 code, tests, docs, or commands that require `mammos-devtools` or sibling
