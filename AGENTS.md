@@ -26,11 +26,3 @@ approval from the user. Operate only on the packages needed for the task.
 
 Keep generated code and documentation simple, explicit, and easy for a human
 maintainer to understand.
-
-When new information is needed, put it in the document for its audience. Use
-README files, examples, or normal docs for user-facing information. Use package
-`CONTRIBUTING.md` for package-specific developer guidance and root
-`CONTRIBUTING-MaMMoS.md` for shared MaMMoS developer guidance. Use `AGENTS.md`
-only for AI-specific operating instructions. After editing root
-`CONTRIBUTING-MaMMoS.md`, run `pixi run sync-contributing`; do not edit synced
-package copies directly.
