@@ -7,12 +7,12 @@ the mammos-devtools repository. Do not edit package copies directly.
 # Shared MaMMoS Contribution Guide
 
 This guide contains contribution standards that apply across MaMMoS package
-repositories. Repository-specific setup, checks, and release instructions belong
+repositories. Repository-specific setup and checks belong
 in each repository's `CONTRIBUTING.md`.
 
 ## Code and repository conventions
 
-- Use American spelling in documentation, comments, and public names.
+- Use American spelling everywhere.
 - Use the `src` layout for Python packages.
 - Keep tests outside the deployed package.
 - Follow Ruff for style decisions.
@@ -33,16 +33,16 @@ in each repository's `CONTRIBUTING.md`.
 
 ## Type hints
 
-- All code should have complete type hints.
+- All code must have complete type hints.
 - Type hints should use the full MaMMoS package names instead of abbreviations.
-  Abbreviations are acceptable only for widely known packages, such as `np` for
-  `numpy`, `pd` for `pandas`, or `mpl` for `matplotlib.pyplot`.
 - Avoid `from` imports used only for type hints.
 - Use `from __future__ import annotations` where useful.
 - Use `if TYPE_CHECKING:` guards for imports needed only by type checkers.
 
 ## Return values and inputs
 
+- When a function or method returns one MaMMoS value the return object should
+  preferably be an Entity.
 - When a function or method returns more than one MaMMoS value, prefer a custom
   composite object based on `mammos_entity.EntityCollection`.
 - Attributes of such composite objects should be `mammos_entity.Entity` objects
@@ -54,7 +54,7 @@ in each repository's `CONTRIBUTING.md`.
 
 ## Documentation and examples
 
-- Public APIs should have docstrings with examples where practical.
+- Public APIs must have docstrings, where practical with examples.
 - Examples should use explicit units and should show the expected entity labels.
 - Keep user-facing documentation in README files, package
   docs, or examples.
@@ -90,7 +90,7 @@ def compute_speed(
     Args:
         length: The travelled distance as :entity:`Length`.
             If no unit is provided, values are interpreted as `m`.
-        time: The travel time as :entity:`Time`.
+        time: The travel :entity:`Time`.
             If no unit is provided, values are interpreted as `s`.
 
     Returns:
@@ -103,12 +103,12 @@ def compute_speed(
         >>> length = me.Entity("Length", 10, "mm")
         >>> time = me.Entity("Time", 2, "s")
         >>> compute_speed(length, time)
-        Entity(ontology_label='Speed', value=0.005, unit='m / s')
+        Entity(ontology_label='Speed', value=5., unit='mm / s')
 
         Passing an array of raw numbers:
 
-        >>> compute_speed([10, 20], [2, 2])
-        Entity(ontology_label='Speed', value=array([5., 10.]), unit='m / s')
+        >>> compute_speed(10, 2)
+        Entity(ontology_label='Speed', value=5., unit='m / s')
     """
     length = me._entity.from_compatible("Length", "m", length=length)
     time = me.Entity.from_compatible("Time", "s", time=time)
@@ -129,7 +129,6 @@ if TYPE_CHECKING:
     import mammos_entity
 
 
-@me._entity_collection.frozen_collection
 class IntrinsicProperties(me.EntityCollection):
     """Intrinsic properties of a ferromagnet."""
 
@@ -167,7 +166,7 @@ class IntrinsicProperties(me.EntityCollection):
 - Follow the package repository's `changes/README.md` instructions.
 - Most user-visible pull requests should include a Towncrier fragment.
 - Internal-only changes can use the `misc` fragment type when the package allows
-  it.
+  it or avoid the changelog fragment all together (PR label `no-changelog-entry-required`).
 
 ## AI-assisted contributions
 
