@@ -1,7 +1,7 @@
 # Agent Instructions for mammos-devtools
 
 This file is only for AI coding agents. Human-facing contribution policy and
-project guidance belong in `CONTRIBUTING.md`, `CONTRIBUTING-MaMMoS.md`, README
+project guidance belong in `CONTRIBUTING.md`, `CONTRIBUTING-MaMMoS.md`, `README.md`
 files, or normal documentation.
 
 Read these files before editing:
