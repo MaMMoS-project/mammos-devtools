@@ -1,26 +1,49 @@
 #!/usr/bin/env bash
 set -e
 
+repos=(
+    mammos
+    mammos-ai
+    mammos-analysis
+    mammos-dft
+    mammos-entity
+    mammos-mumag
+    mammos-spindynamics
+    mammos-units
+)
+
+# Clone a repository only if it is not already available locally.
+# Existing repositories are left untouched to avoid overwriting local work.
+clone_if_missing() {
+    local repo="$1"
+    local url="git@github.com:MaMMoS-project/${repo}.git"
+
+    if git -C "$repo" rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        echo "$repo already exists, skipping clone"
+    elif [ -e "$repo" ]; then
+        # Do not try to repair or delete ambiguous directories automatically.
+        echo "Error: $repo exists but is not a valid git repository." >&2
+        echo "Please inspect or remove packages/$repo and run prepare.sh again." >&2
+        return 1
+    else
+        git clone "$url" "$repo"
+    fi
+}
+
 mkdir -p packages
 cd packages
-git clone git@github.com:MaMMoS-project/mammos.git
-git clone git@github.com:MaMMoS-project/mammos-ai.git
-git clone git@github.com:MaMMoS-project/mammos-analysis.git
-git clone git@github.com:MaMMoS-project/mammos-dft.git
-git clone git@github.com:MaMMoS-project/mammos-entity.git
-git clone git@github.com:MaMMoS-project/mammos-mumag.git
-git clone git@github.com:MaMMoS-project/mammos-spindynamics.git
-git clone git@github.com:MaMMoS-project/mammos-units.git
+
+# Clone all MaMMoS repositories that are not already present in packages/.
+for repo in "${repos[@]}"; do
+    clone_if_missing "$repo"
+done
 
 if (which pre-commit > /dev/null); then
-    cd mammos && pwd && pre-commit install; cd ..
-    cd mammos-ai && pwd && pre-commit install; cd ..
-    cd mammos-analysis && pwd && pre-commit install; cd ..
-    cd mammos-dft && pwd && pre-commit install; cd ..
-    cd mammos-entity && pwd && pre-commit install; cd ..
-    cd mammos-mumag && pwd && pre-commit install; cd ..
-    cd mammos-spindynamics && pwd && pre-commit install; cd ..
-    cd mammos-units && pwd && pre-commit install; cd ..
+    # Install hooks in every prepared repository.
+    for repo in "${repos[@]}"; do
+        cd "$repo" && pwd && pre-commit install
+        cd ..
+    done
 else
     echo Warning: could not find pre-commit, skipping 'pre-commit install' in all repositories
 fi
