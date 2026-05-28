@@ -13,11 +13,22 @@ This repository provides utilities to simplify developing MaMMoS.
 
 ## Preparation
 
-To clone all mammos software suite repositories into a new subdirectory
-`packages` run:
+First, clone this repository via SSH and move into it:
+
+```shell
+git clone git@github.com:MaMMoS-project/mammos-devtools.git
+cd mammos-devtools
+```
+
+Then run the preparation script from inside the `mammos-devtools` directory:
+
 ```shell
 bash prepare.sh
 ```
+
+The script creates a `packages` subdirectory, clones the MaMMoS software suite
+repositories into it, and installs `pre-commit` hooks in those repositories if
+`pre-commit` is available.
 
 Note: this cannot be done with pixi because the default pixi environment
 contains requirements dependencies, which will only be available after the
