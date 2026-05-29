@@ -56,7 +56,6 @@ def check_targets(source_content: bytes) -> int:
 def write_targets(source_content: bytes) -> int:
     for package_name in PACKAGE_NAMES:
         target = ROOT / "packages" / package_name / "CONTRIBUTING-MaMMoS.md"
-        target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(source_content)
         print(f"synced: {target}")
     return 0
