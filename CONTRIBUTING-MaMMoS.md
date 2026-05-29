@@ -16,7 +16,6 @@ in each repository's `CONTRIBUTING.md`.
 - Use the `src` layout for Python packages.
 - Keep tests outside the deployed package.
 - Follow Ruff for style decisions.
-- Use 120-character line length for notebooks.
 - Use semantic versioning for all packages.
 - Update the metapackage version according to the largest version change of any
   dependent package or of the metapackage itself.
