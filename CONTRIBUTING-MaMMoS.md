@@ -55,6 +55,7 @@ in each repository's `CONTRIBUTING.md`.
 ## Documentation and examples
 
 - Public APIs must have docstrings, where practical with examples.
+- Private APIs should also have docstrings in most cases. Exceptions can be made for small utility functions when their behavior is fully clear from the function name.
 - Examples should use explicit units and should show the expected entity labels.
 - Keep user-facing documentation in README files, package
   docs, or examples.

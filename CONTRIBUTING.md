@@ -50,7 +50,7 @@ Build the shared MaMMoS documentation from the umbrella checkout:
 pixi run docs-build
 ```
 
-Open the built documentation in a browser:
+Or build and then open the built documentation in a browser:
 
 ```shell
 pixi run docs-browse
