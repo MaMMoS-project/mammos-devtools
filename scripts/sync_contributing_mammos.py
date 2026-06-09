@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "CONTRIBUTING-MaMMoS.md"
 PACKAGE_NAMES = [
     "mammos",
